@@ -1,6 +1,8 @@
 import {ERROR_QUOTE, PUT_QUOTE, QUOTE_REQUEST} from "../actions/quoteAction";
 
-function quoteReducer(quote, action)
+const initialQuote = 'we will win';
+
+function quoteReducer(quote = initialQuote, action)
 {
     switch (action.type)
     {

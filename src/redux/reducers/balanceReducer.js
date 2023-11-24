@@ -1,6 +1,8 @@
 import {DEPOSIT, WITHDRAW} from "../actions/accountActions";
 
-function balanceReducer(balance, action)
+const initialBalance = 10000;
+
+function balanceReducer(balance = initialBalance, action)
 {
     switch (action.type)
     {
