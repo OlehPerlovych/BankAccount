@@ -1,4 +1,4 @@
-import {DEPOSIT, WITHDRAW} from "../actions/accountActions";
+import {depositAction, withdrawAction} from "../actions/accountActions";
 
 const initialBalance = 10000;
 
@@ -6,9 +6,9 @@ function balanceReducer(balance = initialBalance, action)
 {
     switch (action.type)
     {
-        case DEPOSIT:
+        case depositAction.type:
             return balance + action.payload;
-        case WITHDRAW:
+        case withdrawAction.type:
             const res = balance - action.payload;
             return res<0 ? balance : res;
         default:
