@@ -1,14 +1,11 @@
-import {createAction} from "@reduxjs/toolkit";
+import {errorQuote, putQuote, quoteRequest} from "../slice/accountSlice";
 
-export const errorQuoteAction = createAction('ERROR_QUOTE');
-export const quoteRequestAction = createAction('QUOTE_REQUEST');
-export const putQuoteAction = createAction('PUT_QUOTE');
 export const getQuoteAction = () => {
     return dispatch => {
-        dispatch(quoteRequestAction('Loading...'));
+        dispatch(quoteRequest('Loading...'));
         fetch('https://api.kanye.rest/')
             .then(response => response.json())
-            .then(data => dispatch(putQuoteAction(data.quote)))
-            .catch(error => dispatch(errorQuoteAction('Error 404' + error.message)))
+            .then(data => dispatch(putQuote(data.quote)))
+            .catch(error => dispatch(errorQuote('Error 404' + error.message)))
     }
 }

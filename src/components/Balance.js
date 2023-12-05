@@ -2,8 +2,8 @@ import {useSelector} from "react-redux";
 
 const Balance = () => {
 
-    const balance = useSelector(state => state.balance);
-    const quote = useSelector(state => state.quote);
+    const balance = useSelector(state => state.account.balance);
+    const quote = useSelector(state => state.account.quote);
 
     return (
         <div>
