@@ -1,9 +1,24 @@
-import {rootReducer} from "./reducers/rootReducer";
-import {applyMiddleware, createStore} from "redux";
-import thunk from "redux-thunk";
-import {logger} from "redux-logger";
+import {configureStore} from "@reduxjs/toolkit";
+import balanceReducer from "./reducers/balanceReducer";
+import quoteReducer from "./reducers/quoteReducer";
+import {logger} from "redux-logger/src";
 
+const initialState =
+    {
+        balance: 10000,
+        quote: 'We will win!'
+    };
 
-const store = createStore(rootReducer,applyMiddleware(thunk, logger));
+const store = configureStore(
+    {
+        preloadedState: initialState,
+        reducer:
+            {
+                balance: balanceReducer,
+                quote: quoteReducer
+            },
+        middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger)
+    }
+);
 
 export default store;
