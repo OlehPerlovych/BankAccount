@@ -1,11 +1,11 @@
 import {depositAction, withdrawAction} from "../actions/accountActions";
 import {createReducer} from "@reduxjs/toolkit";
-import balance from "../../components/Balance";
+
 
 const initialBalance = 10000;
 
 //Map object notation
-export const balanceReducer = createReducer(initialBalance,
+const balanceReducer = createReducer(initialBalance,
     {
         [depositAction] : (state, action) =>
         {
@@ -33,4 +33,4 @@ export const balanceReducer = createReducer(initialBalance,
 //     }
 // }
 //
-// export default balanceReducer;
+export default balanceReducer;
