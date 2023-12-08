@@ -1,7 +1,7 @@
 import {useSelector} from "react-redux";
 import Bank from "./Bank";
-import {useMemo} from "react";
-import {getRandomIndex, names} from "../utils/constants";
+import {getBank, getRandomIndex} from "../utils/constants";
+import {useCallback} from "react";
 
 const Balance = () => {
 
@@ -12,11 +12,14 @@ const Balance = () => {
     //const info = {name : 'Leumi'};
 
     const index = getRandomIndex();
-    const info = useMemo(()=> ({name: names[index]}), [index]);
+    // const info = useMemo(()=> ({name: names[index]}), [index]);
+    //const info = index => getBank(index);
+
+    const info = useCallback(index => getBank(index), [index]);
 
     return (
         <div>
-            <Bank info={info}/>
+            <Bank info={info} index={index}/>
             <h4 className={'text-center text-uppercase'}><q>{quote}</q></h4>
             <h3 className={'text-center text-uppercase'}>Balance = {balance}</h3>
         </div>
