@@ -1,4 +1,5 @@
 import {useSelector} from "react-redux";
+import Bank from "./Bank";
 
 const Balance = () => {
 
@@ -7,7 +8,7 @@ const Balance = () => {
 
     return (
         <div>
-            <h1 className={'text-center text-uppercase'}>Bank Hapoalim</h1>
+            <Bank info={'Hapoalim'}/>
             <h4 className={'text-center text-uppercase'}><q>{quote}</q></h4>
             <h3 className={'text-center text-uppercase'}>Balance = {balance}</h3>
         </div>
